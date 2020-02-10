@@ -13,16 +13,25 @@ function updateStats(pet) {
 function update(pet) {
   setInterval(() => {
     updateStats(pet);
-  }, 1000);
+  }, 500);
 }
 
 $(document).ready(function() {
-  $("#start").click(function(event) {
-    const pet = new Tamagotchi();
-    update(pet);
-    $("#start").hide();
-    pet.makeHungry();
+  let pet;
 
+  $("#start").click(function(event) {
     event.preventDefault();
+    $("#start").hide();
+    pet = new Tamagotchi();
+    update(pet);
+    pet.makeHungry();
+    pet.pottyIncrease();
+    pet.increaseAge();
+  });
+
+  $("#med").click(function(event) {
+    event.preventDefault();
+    update(pet);
+    pet.giveMedicine();
   });
 });

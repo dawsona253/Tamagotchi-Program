@@ -102,15 +102,15 @@ describe("Tamagotchi", () => {
     expect(pet.health).toEqual(35);
   });
 
-  test("should increase potty by 1 every 8 seconds", () => {
+  test("should increase potty by 1 every 4 seconds", () => {
     pet.pottyIncrease();
-    jest.advanceTimersByTime(8001);
+    jest.advanceTimersByTime(4001);
     expect(pet.potty).toEqual(1);
   });
 
   test("should have accident if potty reaches 25", () => {
     pet.pottyIncrease();
-    jest.advanceTimersByTime(200001);
+    jest.advanceTimersByTime(100001);
     expect(pet.potty).toEqual(0);
     expect(pet.health).toEqual(25);
   });

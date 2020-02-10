@@ -78,7 +78,7 @@ export class Tamagotchi {
       if (this.potty === 25) {
         this.haveAccident();
       }
-    }, 8000);
+    }, 4000);
   }
 
   haveAccident() {
