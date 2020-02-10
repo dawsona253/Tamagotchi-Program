@@ -41,13 +41,14 @@ export class Tamagotchi {
       this.isAlive = false;
     }
   }
+
   makeHungry() {
     setInterval(() => {
       this.hunger--;
       if (this.hunger <= 3 && this.hunger > 0) {
-        this.health -= 5;
+        this.decreaseHealth(5);
       } else if (this.hunger === 0) {
-        deacreaseHealth(50);
+        this.decreaseHealth(50);
       }
     }, 7000);
   }
@@ -59,13 +60,16 @@ export class Tamagotchi {
       this.hunger = 20;
     }
   }
+
   giveMedicine() {
-    addHealth(30);
+    this.addHealth(30);
   }
+
   useToilet() {
     this.potty = 0;
-    addHealth(15);
+    this.addHealth(15);
   }
+
   pottyIncrease() {
     setInterval(() => {
       this.potty++;
@@ -77,6 +81,6 @@ export class Tamagotchi {
 
   haveAccident() {
     this.potty = 0;
-    decreaseHealth(this.health / 2);
+    this.decreaseHealth(this.health / 2);
   }
 }
