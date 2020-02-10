@@ -35,7 +35,7 @@ describe("Tamagotchi", () => {
   test("should return 'teen' for age after tamagotchi is 6 minutes old", () => {
     pet.increaseAge();
     jest.advanceTimersByTime(420001);
-    expect(pet.getAge()).toEqual("teen");
+    expect(pet.getAge()).toEqual("Teen");
   });
 
   test("should increase tamagotchi's health without exceeding 50", () => {

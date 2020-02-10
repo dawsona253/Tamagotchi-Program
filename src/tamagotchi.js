@@ -17,14 +17,14 @@ export class Tamagotchi {
   }
 
   getAge() {
-    if (this.age <= 2) return "baby";
+    if (this.age <= 2) return "Baby";
     else if (this.age > 2 && this.age <= 5) {
-      return "child";
+      return "Child";
     } else if (this.age > 5 && this.age <= 8) {
-      return "teen";
+      return "Teen";
     } else if (this.age > 8 && this.age < 20) {
-      return "adult";
-    } else return "dead";
+      return "Adult";
+    } else return "Dead";
   }
 
   addHealth(num) {
@@ -49,6 +49,8 @@ export class Tamagotchi {
         this.decreaseHealth(5);
       } else if (this.hunger === 0) {
         this.decreaseHealth(50);
+      } else if (this.hunger < 0) {
+        this.hunger = 0;
       }
     }, 7000);
   }
