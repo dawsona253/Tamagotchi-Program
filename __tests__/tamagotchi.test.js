@@ -5,7 +5,7 @@ describe("Tamagotchi", () => {
   let pet;
 
   beforeEach(() => {
-    pet = new Tamagotchi();
+    pet = new Tamagotchi("brevin");
   });
 
   afterEach(function() {
@@ -18,6 +18,7 @@ describe("Tamagotchi", () => {
     expect(pet.health).toEqual(50);
     expect(pet.isAlive).toEqual(true);
     expect(pet.age).toEqual(0);
+    expect(pet.name).toEqual("brevin");
   });
 
   test("should increase age by 1 every minute", () => {

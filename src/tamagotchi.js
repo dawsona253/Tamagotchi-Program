@@ -1,10 +1,11 @@
 export class Tamagotchi {
-  constructor() {
+  constructor(name) {
     this.hunger = 20;
     this.potty = 0;
     this.health = 50;
     this.isAlive = true;
     this.age = 0;
+    this.name = name;
   }
 
   increaseAge() {

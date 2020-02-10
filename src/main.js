@@ -25,12 +25,15 @@ function update(pet) {
 
 $(document).ready(function() {
   let pet;
+  $("#egg-bg").hide();
 
-  $("#start").click(function(event) {
+  $("#begin").submit(function(event) {
     event.preventDefault();
-    $("#start").hide();
+    $("#begin").hide();
     $("#pet-img").show();
-    pet = new Tamagotchi();
+    $("#egg-bg").show();
+    pet = new Tamagotchi($("#name").val());
+    $("#pet-name").text(pet.name);
     update(pet);
     pet.makeHungry();
     pet.pottyIncrease();

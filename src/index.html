@@ -6,32 +6,44 @@
   <body>
     <div class="container">
       <h1>Tamagotchi</h1>
-      <p>This is your pet Tamagotchi. DON'T LET IT DIE</p>
-      <button class="btn" id="start">Create Your Pet!</button>
-      <div class="row center">
-        <div id="pet-img" class="pet-1"></div>
-      </div>
+      <p class="sub">This is your pet Tamagotchi. DON'T LET IT DIE!</p>
+      <form id="begin" class="center">
+        <div class="row">
+          <label for="input" id="input">Pet Name!</label>
+          <input type="text" id="name" required />
+        </div>
+        <div class="row">
+          <button class="btn" id="start" type="submit">Create Your Pet!</button>
+        </div>
+      </form>
+      <p id="pet-name"></p>
 
       <div class="row">
         <div class="col-md-3">
-          <div id="health"></div>
+          <div class="stats" id="health"></div>
         </div>
         <div class="col-md-3">
-          <div id="potty"></div>
-        </div>
-
-        <div class="col-md-3">
-          <div id="hunger"></div>
+          <div class="stats" id="potty"></div>
         </div>
 
         <div class="col-md-3">
-          <div id="age"></div>
+          <div class="stats" id="hunger"></div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="stats" id="age"></div>
+        </div>
+      </div>
+
+      <div class="row center">
+        <div id="egg-bg">
+          <div id="pet-img" class="pet-1"></div>
         </div>
       </div>
 
       <div class="row">
         <div class="col-md-4">
-          <button class="btn" id="med">Medicine</button>
+          <button class="btn" id="med">Give Medicine</button>
         </div>
         <div class="col-md-4">
           <button class="btn" id="bathroom">Use the Bathroom</button>

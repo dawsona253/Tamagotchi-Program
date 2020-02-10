@@ -1,45 +1,83 @@
 /* 
-yellow: #c4bb6b
-pink: #cbb6b1
-blue: #a7c6c0 
+yellow: #FEDC00
+pink: #EF709D
+blue: #08BBBF
+purp: #9B83BC
 */
+
+label,
+#pet-name {
+  font-weight: 600;
+  font-size: 1.3em;
+}
+
+.stats {
+  font-weight: 600;
+  font-size: 1.5em;
+}
+
+.sub {
+  color: white;
+  font-weight: 600;
+  font-size: 25px;
+}
+
+h1 {
+  color: white;
+  font-weight: 600;
+  font-size: 4em;
+}
+
+body {
+  font-family: "Courier New", Courier, monospace;
+  background-color: #fedc00;
+}
 
 .container {
   margin-top: 40px;
   text-align: center;
-  background-color: #a7c6c0;
+  background-color: #9b83bc;
   min-height: 800px;
   padding: 20px;
+  border-radius: 10%;
 }
 
 .row {
   margin: 20px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .btn {
-  background-color: #c4bb6b;
+  background-color: #fedc00;
   margin: 10px;
+  padding: 15px;
+  font-weight: 600;
+  font-size: 1.1em;
 }
 
 #start {
-  background-color: #cbb6b1;
-  font-size: 1.3em;
-  font-weight: 500;
-  border: 3px solid black;
+  background-color: #ef709d;
+  font-size: 1.5em;
+  padding: 20px;
+  font-weight: 600;
 }
 
 .center {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 #pet-img {
-  width: 500px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   background-position: center;
-  border: 5px solid black;
-  border-radius: 5px;
   display: none;
+  border-radius: 20px;
+  background-size: 500px;
+  background-repeat: no-repeat;
 }
 
 .pet-1 {
@@ -48,4 +86,15 @@ blue: #a7c6c0
 
 .pet-2 {
   background-image: url("../src/img/pet2.jpg.png");
+}
+
+#egg-bg {
+  width: 400px;
+  height: 500px;
+  background-color: #08bbbf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
 }
