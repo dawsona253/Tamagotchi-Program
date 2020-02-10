@@ -4,5 +4,5 @@ import "./styles.css";
 import $ from "jquery";
 import { Tamagotchi } from "./tamagotchi";
 $(document).ready(function() {
-  $("form#tamagotchi");
+  // $("form#tamagotchi");
 });
