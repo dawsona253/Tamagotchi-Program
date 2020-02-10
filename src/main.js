@@ -9,6 +9,13 @@ function updateStats(pet) {
   $("#potty").text(`Potty: ${pet.potty}`);
   $("#hunger").text(`Hunger: ${pet.hunger}`);
   $("#age").text(`Age: ${pet.getAge()}`);
+  if ($("#pet-img").hasClass("pet-1")) {
+    $("#pet-img").removeClass();
+    $("#pet-img").addClass("pet-2");
+  } else if ($("#pet-img").hasClass("pet-2")) {
+    $("#pet-img").removeClass();
+    $("#pet-img").addClass("pet-1");
+  }
 }
 function update(pet) {
   setInterval(() => {
@@ -22,6 +29,7 @@ $(document).ready(function() {
   $("#start").click(function(event) {
     event.preventDefault();
     $("#start").hide();
+    $("#pet-img").show();
     pet = new Tamagotchi();
     update(pet);
     pet.makeHungry();
@@ -31,7 +39,16 @@ $(document).ready(function() {
 
   $("#med").click(function(event) {
     event.preventDefault();
-    update(pet);
     pet.giveMedicine();
+  });
+
+  $("#bathroom").click(function(event) {
+    event.preventDefault();
+    pet.useToilet();
+  });
+
+  $("#feed").click(function(event) {
+    event.preventDefault();
+    pet.giveFood();
   });
 });
