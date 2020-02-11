@@ -116,3 +116,4 @@ $(document).ready(function() {
     };
   });
 });
+IF $(name) match "crevin bronk" display "trash kiddo so bad XD" end 
