@@ -5,11 +5,11 @@ blue: #08BBBF
 purp: #9B83BC
 */
 #gif {
-  width: 250px;
-  height: 250px;
+  width: 150px;
+  height: 150px;
   background-position: center;
   border-radius: 20px;
-  background-size: 500px;
+  background-size: 300px;
   background-repeat: no-repeat;
 }
 
@@ -84,16 +84,26 @@ body {
   background-position: center;
   display: none;
   border-radius: 20px;
-  background-size: 500px;
   background-repeat: no-repeat;
 }
 
 .pet-1 {
   background-image: url("../src/img/pet1.jpg.png");
+  background-size: 500px;
 }
 
 .pet-2 {
   background-image: url("../src/img/pet2.jpg.png");
+  background-size: 500px;
+}
+
+.gravestone {
+  background-image: url("../src/img/gravestone.jpg");
+  background-size: 300px;
+}
+
+#dead {
+  display: none;
 }
 
 #egg-bg {

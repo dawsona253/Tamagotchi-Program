@@ -8,12 +8,23 @@ const url =
   "https://api.giphy.com/v1/gifs/random?api_key=NugGuaZWltD1aGOEFjEYel1ihO71FVuP&tag=cat&rating=G";
 
 function updateStats(pet) {
+  $(".stats").show();
+
+  $("#begin").hide();
+  $(".gameplay-btns").show();
+  $("#pet-img").show();
+  $("#egg-bg").show();
+  $("#dead").hide();
+
   $("#health").text(`Health: ${pet.health}`);
   $("#potty").text(`Potty: ${pet.potty}`);
   $("#hunger").text(`Hunger: ${pet.hunger}`);
   $("#age").text(`Age: ${pet.getAge()}`);
   $("#happy").text(`Happy: ${pet.happy}`);
-  if ($("#pet-img").hasClass("pet-1")) {
+  if ($("#pet-img").hasClass("gravestone")) {
+    $("#pet-img").removeClass();
+    $("#pet-img").addClass("pet-1");
+  } else if ($("#pet-img").hasClass("pet-1")) {
     $("#pet-img").removeClass();
     $("#pet-img").addClass("pet-2");
   } else if ($("#pet-img").hasClass("pet-2")) {
@@ -22,9 +33,31 @@ function updateStats(pet) {
   }
 }
 
+function endGame(pet, interval) {
+  $(".gameplay-btns").hide();
+  $("#pet-img").removeClass();
+  $("#pet-img").addClass("gravestone");
+  $("#begin").show();
+  $("#pet-name").hide();
+  $(".stats").hide();
+  $("#dead").show();
+  $("#dead").text(`${pet.name} Died!`);
+  clearTimeout(interval);
+}
+
+function gifHide() {
+  setTimeout(() => {
+    $("#gif-row").slideUp();
+  }, 3000);
+}
+
 function update(pet) {
-  setInterval(() => {
-    updateStats(pet);
+  let interval = setInterval(() => {
+    if (pet.isAlive) {
+      updateStats(pet);
+    } else {
+      endGame(pet, interval);
+    }
   }, 500);
 }
 
@@ -39,15 +72,14 @@ function engine(pet) {
 $(document).ready(function() {
   let pet;
   $("#egg-bg").hide();
+  $("#gif-row").hide();
 
   $("#begin").submit(function(event) {
     event.preventDefault();
-    $("#begin").hide();
-    $("#pet-img").show();
-    $("#egg-bg").show();
     pet = new Tamagotchi($("#name").val());
-    $("#pet-name").text(pet.name);
     engine(pet);
+    $("#pet-name").show();
+    $("#pet-name").text(pet.name);
   });
 
   $("#med-btn").click(function(event) {
@@ -68,6 +100,7 @@ $(document).ready(function() {
   $("#happy-btn").click(function(event) {
     event.preventDefault();
     pet.increaseHappy();
+
     fetch(url)
       .then(function(response) {
         return response.json();
@@ -75,6 +108,8 @@ $(document).ready(function() {
       .then(function(jsonifiedResponse) {
         let imageUrl = jsonifiedResponse.data.image_url;
         setBackG(imageUrl);
+        $("#gif-row").slideDown();
+        gifHide();
       });
     const setBackG = function(imageUrl) {
       $("#gif").css("background-image", "url(" + imageUrl + ")");
