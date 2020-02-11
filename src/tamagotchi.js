@@ -6,6 +6,24 @@ export class Tamagotchi {
     this.isAlive = true;
     this.age = 0;
     this.name = name;
+    this.happy = 20;
+  }
+
+  decreaseHappy() {
+    setInterval(() => {
+      this.happy--;
+      if (this.happy <= 0) {
+        this.happy = 0;
+        this.decreaseHealth(this.health / 2);
+      }
+    }, 5000);
+  }
+
+  increaseHappy() {
+    this.happy += 10;
+    if (this.happy >= 21) {
+      this.happy = 20;
+    }
   }
 
   increaseAge() {

@@ -122,4 +122,14 @@ describe("Tamagotchi", () => {
     expect(pet.potty).toEqual(0);
     expect(pet.health).toEqual(25);
   });
+  test("should decrease happy by 1 every 5 seconds", () => {
+    pet.decreaseHappy();
+    jest.advanceTimersByTime(5001);
+    expect(pet.happy).toEqual(19);
+  });
+  test("should increase happy by 10 every show GIF click.", () => {
+    pet.happy = 10;
+    pet.increaseHappy();
+    expect(pet.happy).toEqual(20);
+  });
 });
